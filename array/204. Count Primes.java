@@ -1,21 +1,25 @@
 /*https://leetcode.com/problems/count-primes/*/
 
 class Solution {
-       static boolean isPrime(int n){
-    if (n <= 1)
-        return false;
-    for (int i = 2; i < n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
-}
     public int countPrimes(int n) {
-        int c=0;
-        for(int i=2;i<n;i++){
-           if(isPrime(i)){
-               c++;
-           }
+        int res = 0;
+        if(n <= 2){
+            return res;
         }
-        return c;
+        boolean[] isPrime = new boolean[n+1];
+        Arrays.fill(isPrime, true);
+        for(int i = 2; i*i <= n; i++){
+            if(isPrime[i]){
+                for(int j = 2*i; j <= n; j += i){
+                    isPrime[j] = false;
+                }
+            }
+        }
+        for(int i = 2; i < n; i++){
+            if(isPrime[i]){
+                res++;  
+            }
+        }
+        return res;
     }
 }
