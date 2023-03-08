@@ -1,4 +1,9 @@
-
+/*Rahul is a delivery man and has to deliver 'n' different packages to 'n' different cities. 
+All the cities are on a circular route and to get in a city Rahul needs to pay toll tax. 
+but the problem is that Rahul has no money so he is dependent on tip that he get from the cities. 
+he can start from any city. You have to tell the starting city so that he can deliver packages to all cities. 
+Note : if Rahul is on (i)th city he needs (toll[i])th to travel from (i)th city to (i+1)th city. 
+Rahul travels in clockwise direction and if the solution exists it is unique and if no solution exists print -1.*/
 
 import java.util.*;
 public class Main {
