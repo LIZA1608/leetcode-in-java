@@ -1,5 +1,6 @@
 
 
+
 class Solution {
     public int lastStoneWeight(int[] stones) {
         int n=stones.length;
