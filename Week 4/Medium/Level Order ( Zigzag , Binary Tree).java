@@ -59,3 +59,50 @@ public class Main {
         }
     }
 }
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //gfg solution 
+    
+    class Solution
+{
+    //Function to return the level order traversal of a tree.
+    static ArrayList <Integer> levelOrder(Node node) 
+    {
+        // Your code here
+        ArrayList<Integer>ans=new ArrayList<>();
+        Queue<Node>q=new LinkedList<>();
+        if(node==null){
+            return ans;
+        }
+        q.add(node);
+        while(!q.isEmpty()){
+            int size=q.size();
+            boolean lefttoright=true;
+            for(int i=0;i<size;i++){
+                Node front=q.poll();
+                int index;
+                if(lefttoright){
+                    index=i;
+                }
+                else{
+                    index=size-i-1;
+                }
+                if(front.left!=null){
+                    q.add(front.left);
+                }
+                if(front.right!=null){
+                    q.add(front.right);
+                }
+                ans.add(front.data);
+            }
+            lefttoright=!lefttoright;
+            
+        }
+        return ans;
+        
+    }
+}
+
+
+
+
+
