@@ -1,5 +1,4 @@
 import java.util.*;
-
 class TreeNode {
     int val;
     TreeNode left;
@@ -37,21 +36,32 @@ public class Main {
     }
     
     public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-        if(root==null){
-            return root;
+        if (p == null) {
+            return null;
         }
-        TreeNode temp=root;
-        TreeNode suc=new TreeNode(-1);
-        while(temp!=null){
-            if(temp.val>p.val){
-                suc=temp;
-                temp=temp.left;
+        if (p.right != null) {
+            // Case 1: Node p has a right child
+            // The inorder successor is the leftmost node in p's right subtree
+            TreeNode current = p.right;
+            while (current.left != null) {
+                current = current.left;
             }
-            else{
-                temp=temp.right;
+            return current;
+        } else {
+            // Case 2: Node p does not have a right child
+            // The inorder successor is the first ancestor whose left child is also an ancestor of p
+            TreeNode successor = null;
+            TreeNode ancestor = root;
+            while (ancestor != null && ancestor.val != p.val) {
+                if (p.val < ancestor.val) {
+                    successor = ancestor;
+                    ancestor = ancestor.left;
+                } else {
+                    ancestor = ancestor.right;
+                }
             }
+            return successor;
         }
-        return suc;
     }
     
     public static void main(String[] args) {
@@ -71,6 +81,9 @@ public class Main {
         if (successor != null) {
             System.out.println( successor.val);
         } 
+		else {
+            System.out.println("null");
+        }
         sc.close();
     }
 }
