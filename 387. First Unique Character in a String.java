@@ -1,5 +1,5 @@
 
-
+/*solution/*
 class Solution {
     public int firstUniqChar(String s) {
         HashMap<Character,Integer>list=new HashMap<>();
