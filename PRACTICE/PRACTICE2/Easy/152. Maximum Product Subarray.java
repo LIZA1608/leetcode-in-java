@@ -1,5 +1,6 @@
 /*https://leetcode.com/problems/maximum-product-subarray/description/*/
 
+/*solution*/
 class Solution {
     public int maxProduct(int[] nums) {
         int n=nums.length;
