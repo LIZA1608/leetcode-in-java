@@ -2,6 +2,7 @@
 
 //use kmp 
 
+
 class Solution {
     public int strStr(String haystack, String needle) {
         int n=haystack.length();
