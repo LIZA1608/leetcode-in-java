@@ -27,3 +27,27 @@ class Solution {
       
     }
 }
+//bottom up approch
+class Solution {
+    public int lcs(String x,String y,int ae,int be){
+      int dp[][]=new int [x.length()+1][y.length()+1];
+        for(int a=1;a<=x.length();a++){
+            for(int  b=1;b<=y.length();b++){
+                if(x.charAt(a-1)==y.charAt(b-1)){
+                    dp[a][b]=dp[a-1][b-1]+1;
+                }
+                else{
+                    int a1=dp[a-1][b];
+                    int a2=dp[a][b-1];
+                    dp[a][b]=Math.max(a1,a2);
+                }
+            }
+        }
+        return dp[x.length()][y.length()];
+    }
+    public int longestCommonSubsequence(String text1, String text2) {
+    
+         return lcs(text1,text2,0,0);
+      
+    }
+}
