@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+       int oneend=1;
+	   int zeroend=1;
+	   int sum=oneend+zeroend;
+	   if(n==1){
+		   cout<<sum<<endl;
+	   }
+	   else{
+	   int i=2;
+	   while(i<=n){
+		   oneend=zeroend;
+		   zeroend=sum;
+		   sum=zeroend+oneend;
+		   i++;
+	   }
+       cout<<sum<<endl;
+	   }
+	}
+    return 0;
+}
